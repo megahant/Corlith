@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
 import { ShaderAnimation } from "@/components/ui/shader-animation";
 import { GrowthChart } from "@/components/GrowthChart";
-import { ArrowRight, Zap, Users, BarChart3, Palette, MessageSquare, TrendingUp } from "lucide-react";
+import { SpriteIcon } from "@/components/SpriteIcon";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import corlithLogo from "@/assets/corlith-logo.png";
 
 const stats = [
   { value: "142%", label: "Avg. Client Growth" },
@@ -14,12 +16,12 @@ const stats = [
 ];
 
 const services = [
-  { icon: BarChart3, title: "Marketing", desc: "AI-driven campaigns that convert" },
-  { icon: Users, title: "Client Management", desc: "Automated CRM & outreach" },
-  { icon: Palette, title: "Design", desc: "Brand identity & creative assets" },
-  { icon: MessageSquare, title: "Social Media", desc: "Content creation & scheduling" },
-  { icon: TrendingUp, title: "Analytics", desc: "Real-time performance tracking" },
-  { icon: Zap, title: "Automation", desc: "End-to-end workflow automation" },
+  { row: 2, col: 0, title: "Client Management", desc: "Automated CRM & outreach" },
+  { row: 2, col: 1, title: "Design", desc: "Brand identity & creative assets" },
+  { row: 2, col: 2, title: "Social Media", desc: "Content creation & scheduling" },
+  { row: 2, col: 3, title: "Analytics", desc: "Real-time performance tracking" },
+  { row: 3, col: 0, title: "Automation", desc: "End-to-end workflow automation" },
+  { row: 3, col: 1, title: "Creative Strategy", desc: "AI-driven campaigns that convert" },
 ];
 
 const timeline = [
@@ -54,9 +56,7 @@ export default function Index() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              <h1 className="text-6xl md:text-8xl font-display font-bold text-foreground">
-                Corlith<span className="text-primary">.</span>
-              </h1>
+              <img src={corlithLogo} alt="Corlith" className="h-16 md:h-24" />
               <p className="mt-4 text-muted-foreground text-lg">AI Infrastructure Agency</p>
             </motion.div>
           </motion.div>
@@ -74,7 +74,7 @@ export default function Index() {
               className="max-w-3xl"
             >
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glow-border text-sm text-primary mb-8">
-                <Zap size={14} />
+                <SpriteIcon row={0} col={0} size={16} />
                 AI-Powered Business Management
               </div>
               <h1 className="text-5xl md:text-7xl font-display font-bold leading-[1.1] text-foreground">
@@ -167,9 +167,7 @@ export default function Index() {
                     transition={{ delay: i * 0.15 }}
                     className="flex gap-4 items-start"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-display font-bold text-sm shrink-0">
-                      {i + 1}
-                    </div>
+                    <SpriteIcon row={1} col={i} size={48} className="rounded-xl" />
                     <div>
                       <div className="font-display font-semibold text-foreground">
                         {item.month} — <span className="text-primary">{item.revenue}</span>
@@ -206,9 +204,7 @@ export default function Index() {
                   transition={{ delay: i * 0.08 }}
                   className="glass-hover rounded-2xl p-6 group cursor-pointer"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:glow-sm transition-all">
-                    <s.icon size={22} />
-                  </div>
+                  <SpriteIcon row={s.row} col={s.col} size={48} className="mb-4 rounded-xl" />
                   <h3 className="font-display font-semibold text-lg text-foreground">{s.title}</h3>
                   <p className="text-sm text-muted-foreground mt-2">{s.desc}</p>
                 </motion.div>
