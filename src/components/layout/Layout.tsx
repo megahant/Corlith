@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Navbar } from "./Navbar";
 import { renderCanvas } from "@/components/ui/canvas";
+import corlithLogo from "@/assets/corlith-logo.png";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -23,9 +24,7 @@ export function Layout({ children }: LayoutProps) {
       {/* Footer */}
       <footer className="relative z-[2] border-t border-border py-12 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="text-xl font-display font-bold text-foreground">
-            Corlith<span className="text-primary">.</span>
-          </div>
+          <img src={corlithLogo} alt="Corlith" className="h-6" />
           <p className="text-muted-foreground text-sm">
             © 2026 Corlith. All rights reserved.
           </p>

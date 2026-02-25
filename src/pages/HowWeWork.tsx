@@ -1,40 +1,40 @@
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
-import { Cpu, Search, Rocket, BarChart3, Settings, CheckCircle } from "lucide-react";
+import { SpriteIcon } from "@/components/SpriteIcon";
 
 const steps = [
   {
-    icon: Search,
+    row: 0, col: 0,
     title: "Discovery & Audit",
     desc: "We analyze your current business operations, identify bottlenecks, and map out growth opportunities using AI-powered diagnostics.",
     detail: "Deep-dive into your marketing, sales pipeline, brand, and operations.",
   },
   {
-    icon: Cpu,
+    row: 0, col: 1,
     title: "AI Infrastructure Build",
     desc: "We design and deploy custom AI systems tailored to your business — automating marketing, client management, and creative workflows.",
     detail: "Custom AI agents, CRM pipelines, content engines, and analytics dashboards.",
   },
   {
-    icon: Settings,
+    row: 0, col: 2,
     title: "Integration & Training",
     desc: "Our team of real people ensures seamless integration with your existing tools. We train the AI on your brand voice and processes.",
     detail: "Works with your existing stack — Slack, HubSpot, Shopify, and more.",
   },
   {
-    icon: Rocket,
+    row: 0, col: 3,
     title: "Launch & Scale",
     desc: "We go live. AI handles day-to-day operations while our human team monitors, optimizes, and scales your growth.",
     detail: "24/7 AI operations backed by human oversight.",
   },
   {
-    icon: BarChart3,
+    row: 1, col: 2,
     title: "Optimize & Report",
     desc: "Monthly performance reviews, A/B testing, and continuous optimization ensure compounding results.",
     detail: "Transparent reporting with real-time dashboards.",
   },
   {
-    icon: CheckCircle,
+    row: 1, col: 3,
     title: "You Focus, We Deliver",
     desc: "While you work on your craft, we handle marketing, social media, client outreach, design, and everything in between.",
     detail: "Your business runs itself — with human quality and AI speed.",
@@ -81,9 +81,7 @@ export default function HowWeWork() {
                 <div className={`ml-16 md:ml-0 md:w-1/2 ${i % 2 === 0 ? "md:pr-16 md:text-right" : "md:pl-16"}`}>
                   <div className={`glass-hover rounded-2xl p-6 ${i % 2 === 0 ? "md:ml-auto" : ""} max-w-md`}>
                     <div className={`flex items-center gap-3 mb-3 ${i % 2 === 0 ? "md:justify-end" : ""}`}>
-                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                        <step.icon size={20} />
-                      </div>
+                      <SpriteIcon row={step.row} col={step.col} size={40} className="rounded-lg" />
                       <span className="text-xs text-muted-foreground font-medium uppercase tracking-widest">
                         Step {i + 1}
                       </span>

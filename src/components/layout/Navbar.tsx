@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import corlithLogo from "@/assets/corlith-logo.png";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -18,8 +19,8 @@ export function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link to="/" className="text-2xl font-display font-bold text-foreground tracking-tight">
-          Corlith<span className="text-primary">.</span>
+        <Link to="/" className="flex items-center">
+          <img src={corlithLogo} alt="Corlith" className="h-8" />
         </Link>
 
         {/* Desktop */}
