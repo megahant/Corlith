@@ -6,6 +6,9 @@ import { GrowthChart } from "@/components/GrowthChart";
 import { ArrowRight, Sparkles, Rocket, TrendingUp, BarChart3, Zap, Users, Palette, Share2, LineChart, Lightbulb } from "lucide-react";
 import { Link } from "react-router-dom";
 import corlithLogo from "@/assets/corlith-logo.png";
+import { SplineScene } from "@/components/ui/splite";
+import { Spotlight } from "@/components/ui/spotlight";
+import { Card } from "@/components/ui/card";
 
 const stats = [
   { value: "142%", label: "Avg. Client Growth" },
@@ -63,49 +66,66 @@ export default function Index() {
       </AnimatePresence>
 
       <Layout>
-        {/* Hero */}
+        {/* Hero with 3D */}
         <section className="pt-32 pb-20 px-6">
           <div className="max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 30 : 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="max-w-3xl"
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glow-border text-sm text-primary mb-8">
-                <Sparkles size={16} className="text-primary" />
-                AI-Powered Business Management
-              </div>
-              <h1 className="text-5xl md:text-7xl font-display font-bold leading-[1.1] text-foreground">
-                We Run Your
-                <br />
-                <span className="text-gradient">Business</span> While
-                <br />
-                You Focus.
-              </h1>
-              <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
-                Corlith builds AI infrastructures using AI and real people to manage your marketing, 
-                social media, clients, design — everything. You focus on what matters.
-              </p>
-              <div className="flex flex-wrap gap-4 mt-10">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all glow-sm"
+            <Card className="w-full bg-background/50 border-border relative overflow-hidden rounded-2xl">
+              <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="hsl(var(--primary))" />
+              <div className="flex flex-col md:flex-row">
+                {/* Left content */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 30 : 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="flex-1 p-8 md:p-12 relative z-10 flex flex-col justify-center"
                 >
-                  Get Started <ArrowRight size={16} />
-                </Link>
-                <Link
-                  to="/how-we-work"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-border text-foreground font-medium hover:bg-secondary transition-all"
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glow-border text-sm text-primary mb-8 w-fit">
+                    <Sparkles size={16} className="text-primary" />
+                    AI-Powered Business Management
+                  </div>
+                  <h1 className="text-5xl md:text-7xl font-display font-bold leading-[1.1] text-foreground">
+                    We Run Your
+                    <br />
+                    <span className="text-gradient">Business</span> While
+                    <br />
+                    You Focus.
+                  </h1>
+                  <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
+                    Corlith builds AI infrastructures using AI and real people to manage your marketing, 
+                    social media, clients, design — everything. You focus on what matters.
+                  </p>
+                  <div className="flex flex-wrap gap-4 mt-10">
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all glow-sm"
+                    >
+                      Get Started <ArrowRight size={16} />
+                    </Link>
+                    <Link
+                      to="/how-we-work"
+                      className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-border text-foreground font-medium hover:bg-secondary transition-all"
+                    >
+                      How We Work
+                    </Link>
+                  </div>
+                </motion.div>
+
+                {/* Right - 3D Spline */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: showIntro ? 0 : 1 }}
+                  transition={{ duration: 1, delay: 0.5 }}
+                  className="flex-1 relative h-[400px] md:h-[500px]"
                 >
-                  How We Work
-                </Link>
+                  <SplineScene 
+                    scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                    className="w-full h-full"
+                  />
+                </motion.div>
               </div>
-            </motion.div>
+            </Card>
           </div>
         </section>
-
-        {/* Stats */}
         <section className="py-16 px-6 border-y border-border">
           <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, i) => (

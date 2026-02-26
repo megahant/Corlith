@@ -24,7 +24,7 @@ export function Layout({ children }: LayoutProps) {
       {/* Footer */}
       <footer className="relative z-[2] border-t border-border py-12 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <img src={corlithLogo} alt="Corlith" className="h-10" />
+          <img src={corlithLogo} alt="Corlith" className="h-20" />
           <p className="text-muted-foreground text-sm">
             © 2026 Corlith. All rights reserved.
           </p>
