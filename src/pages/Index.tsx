@@ -3,8 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
 import { ShaderAnimation } from "@/components/ui/shader-animation";
 import { GrowthChart } from "@/components/GrowthChart";
-import { SpriteIcon } from "@/components/SpriteIcon";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles, Rocket, TrendingUp, BarChart3, Zap, Users, Palette, Share2, LineChart, Lightbulb } from "lucide-react";
 import { Link } from "react-router-dom";
 import corlithLogo from "@/assets/corlith-logo.png";
 
@@ -16,19 +15,19 @@ const stats = [
 ];
 
 const services = [
-  { row: 2, col: 0, title: "Client Management", desc: "Automated CRM & outreach" },
-  { row: 2, col: 1, title: "Design", desc: "Brand identity & creative assets" },
-  { row: 2, col: 2, title: "Social Media", desc: "Content creation & scheduling" },
-  { row: 2, col: 3, title: "Analytics", desc: "Real-time performance tracking" },
-  { row: 3, col: 0, title: "Automation", desc: "End-to-end workflow automation" },
-  { row: 3, col: 1, title: "Creative Strategy", desc: "AI-driven campaigns that convert" },
+  { icon: Users, title: "Client Management", desc: "Automated CRM & outreach" },
+  { icon: Palette, title: "Design", desc: "Brand identity & creative assets" },
+  { icon: Share2, title: "Social Media", desc: "Content creation & scheduling" },
+  { icon: LineChart, title: "Analytics", desc: "Real-time performance tracking" },
+  { icon: Zap, title: "Automation", desc: "End-to-end workflow automation" },
+  { icon: Lightbulb, title: "Creative Strategy", desc: "AI-driven campaigns that convert" },
 ];
 
 const timeline = [
-  { month: "Month 1", revenue: "$2K", desc: "Infrastructure setup & strategy" },
-  { month: "Month 2", revenue: "$12K", desc: "Campaigns live, leads flowing" },
-  { month: "Month 3", revenue: "$45K", desc: "Scaling & optimization" },
-  { month: "Month 4", revenue: "$150K+", desc: "Full automation, exponential growth" },
+  { icon: Rocket, month: "Month 1", revenue: "$2K", desc: "Infrastructure setup & strategy" },
+  { icon: TrendingUp, month: "Month 2", revenue: "$12K", desc: "Campaigns live, leads flowing" },
+  { icon: BarChart3, month: "Month 3", revenue: "$45K", desc: "Scaling & optimization" },
+  { icon: Sparkles, month: "Month 4", revenue: "$150K+", desc: "Full automation, exponential growth" },
 ];
 
 export default function Index() {
@@ -74,7 +73,7 @@ export default function Index() {
               className="max-w-3xl"
             >
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glow-border text-sm text-primary mb-8">
-                <SpriteIcon row={0} col={0} size={16} />
+                <Sparkles size={16} className="text-primary" />
                 AI-Powered Business Management
               </div>
               <h1 className="text-5xl md:text-7xl font-display font-bold leading-[1.1] text-foreground">
@@ -167,7 +166,9 @@ export default function Index() {
                     transition={{ delay: i * 0.15 }}
                     className="flex gap-4 items-start"
                   >
-                    <SpriteIcon row={1} col={i} size={48} className="rounded-xl" />
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                      <item.icon size={24} />
+                    </div>
                     <div>
                       <div className="font-display font-semibold text-foreground">
                         {item.month} — <span className="text-primary">{item.revenue}</span>
@@ -204,7 +205,9 @@ export default function Index() {
                   transition={{ delay: i * 0.08 }}
                   className="glass-hover rounded-2xl p-6 group cursor-pointer"
                 >
-                  <SpriteIcon row={s.row} col={s.col} size={48} className="mb-4 rounded-xl" />
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-4">
+                    <s.icon size={24} />
+                  </div>
                   <h3 className="font-display font-semibold text-lg text-foreground">{s.title}</h3>
                   <p className="text-sm text-muted-foreground mt-2">{s.desc}</p>
                 </motion.div>

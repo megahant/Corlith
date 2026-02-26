@@ -1,58 +1,58 @@
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
-import { SpriteIcon } from "@/components/SpriteIcon";
+import { Megaphone, Users, Palette, Share2, Globe, Mail, Video, LineChart, Zap } from "lucide-react";
 
 const services = [
   {
-    row: 3, col: 1,
+    icon: Megaphone,
     title: "AI Marketing",
     desc: "Data-driven campaigns powered by machine learning. We create, test, and optimize ads across all platforms automatically.",
     features: ["Google & Meta Ads", "SEO Automation", "Email Campaigns", "A/B Testing"],
   },
   {
-    row: 2, col: 0,
+    icon: Users,
     title: "Client Management",
     desc: "Automated CRM pipelines that nurture leads, follow up, and close deals while you sleep.",
     features: ["Lead Scoring", "Auto Follow-ups", "Pipeline Management", "Reporting"],
   },
   {
-    row: 2, col: 1,
+    icon: Palette,
     title: "Design & Branding",
     desc: "Full brand identity packages and ongoing creative assets — logos, social graphics, presentations, and more.",
     features: ["Brand Identity", "Social Graphics", "Pitch Decks", "UI/UX Design"],
   },
   {
-    row: 2, col: 2,
+    icon: Share2,
     title: "Social Media",
     desc: "Content creation, scheduling, community management, and growth strategies across all platforms.",
     features: ["Content Calendar", "Community Mgmt", "Influencer Outreach", "Analytics"],
   },
   {
-    row: 3, col: 2,
+    icon: Globe,
     title: "Website & Funnels",
     desc: "High-converting websites and sales funnels built with AI-optimized copy and design.",
     features: ["Landing Pages", "Sales Funnels", "Conversion Optimization", "Analytics"],
   },
   {
-    row: 3, col: 3,
+    icon: Mail,
     title: "Outreach & Sales",
     desc: "AI-powered cold outreach, warm sequences, and partnership development at scale.",
     features: ["Cold Email", "LinkedIn Outreach", "Partnership Dev", "Deal Closing"],
   },
   {
-    row: 3, col: 1,
+    icon: Video,
     title: "Content Production",
     desc: "Video editing, podcast production, blog writing, and multimedia content creation.",
     features: ["Video Editing", "Blog Writing", "Podcast Production", "Newsletters"],
   },
   {
-    row: 2, col: 3,
+    icon: LineChart,
     title: "Analytics & Reporting",
     desc: "Real-time dashboards tracking every metric that matters. Weekly reports with actionable insights.",
     features: ["Custom Dashboards", "Weekly Reports", "ROI Tracking", "Forecasting"],
   },
   {
-    row: 3, col: 0,
+    icon: Zap,
     title: "Full Automation",
     desc: "End-to-end workflow automation connecting all your tools into a seamless, self-running operation.",
     features: ["Workflow Design", "Tool Integration", "Process Automation", "Monitoring"],
@@ -87,7 +87,9 @@ export default function Services() {
                 transition={{ delay: i * 0.05 }}
                 className="glass-hover rounded-2xl p-6 group"
               >
-                <SpriteIcon row={s.row} col={s.col} size={48} className="mb-4 rounded-xl" />
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-4">
+                  <s.icon size={24} />
+                </div>
                 <h3 className="text-lg font-display font-semibold text-foreground">{s.title}</h3>
                 <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{s.desc}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
