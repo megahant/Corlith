@@ -6,11 +6,6 @@ import { Send, Mail, MapPin, Clock } from "lucide-react";
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
   return (
     <Layout>
       <section className="pt-32 pb-24 px-6">
@@ -37,7 +32,7 @@ export default function Contact() {
               className="lg:col-span-2 space-y-8"
             >
               {[
-                { icon: Mail, label: "Email", value: "hello@corlith.com" },
+                { icon: Mail, label: "Email", value: "corlithsystems@gmail.com" },
                 { icon: MapPin, label: "Location", value: "Remote — Worldwide" },
                 { icon: Clock, label: "Response Time", value: "Under 24 hours" },
               ].map((item) => (
@@ -69,14 +64,19 @@ export default function Contact() {
                   <p className="text-muted-foreground mt-2">We'll get back to you within 24 hours.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="glass rounded-2xl p-8 space-y-6">
+                <form
+                  action="https://formspree.io/f/mjgelodb"
+                  method="POST"
+                  className="glass rounded-2xl p-8 space-y-6"
+                >
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-sm text-muted-foreground mb-1.5 block">Name</label>
                       <input
                         required
                         type="text"
-                        className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-text-dim focus:outline-none focus:border-primary/50 transition-colors"
+                        name="name"
+                        className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors"
                         placeholder="Your name"
                       />
                     </div>
@@ -85,7 +85,8 @@ export default function Contact() {
                       <input
                         required
                         type="email"
-                        className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-text-dim focus:outline-none focus:border-primary/50 transition-colors"
+                        name="email"
+                        className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors"
                         placeholder="you@company.com"
                       />
                     </div>
@@ -94,7 +95,8 @@ export default function Contact() {
                     <label className="text-sm text-muted-foreground mb-1.5 block">Business Type</label>
                     <input
                       type="text"
-                      className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-text-dim focus:outline-none focus:border-primary/50 transition-colors"
+                      name="business_type"
+                      className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors"
                       placeholder="e.g., E-commerce, SaaS, Agency"
                     />
                   </div>
@@ -103,7 +105,8 @@ export default function Contact() {
                     <textarea
                       required
                       rows={4}
-                      className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-text-dim focus:outline-none focus:border-primary/50 transition-colors resize-none"
+                      name="message"
+                      className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors resize-none"
                       placeholder="What would you like Corlith to manage for you?"
                     />
                   </div>
