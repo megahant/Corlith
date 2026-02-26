@@ -29,9 +29,9 @@ export function Layout({ children }: LayoutProps) {
             © 2026 Corlith. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-foreground transition-colors">Twitter</a>
-            <a href="#" className="hover:text-foreground transition-colors">LinkedIn</a>
-            <a href="#" className="hover:text-foreground transition-colors">Email</a>
+            <a href="https://www.instagram.com/corlithsystems/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Instagram</a>
+            <a href="https://www.linkedin.com/in/corlith-systems-a219663b3/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">LinkedIn</a>
+            <a href="https://mail.google.com/mail/u/1/#inbox?compose=DmwnWrRlRQhtqgsVBCRqdRvfDXbhwrCBwsGJvlNGnqNXQZJwsGDPpDsqwZllmssVHJHBNwtPgKJb" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Email</a>
           </div>
         </div>
       </footer>

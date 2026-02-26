@@ -79,10 +79,6 @@ export default function Index() {
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className="flex-1 p-8 md:p-12 relative z-10 flex flex-col justify-center"
                 >
-                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glow-border text-sm text-primary mb-8 w-fit">
-                    <Sparkles size={16} className="text-primary" />
-                    AI-Powered Business Management
-                  </div>
                   <h1 className="text-5xl md:text-7xl font-display font-bold leading-[1.1] text-foreground">
                     We Run Your
                     <br />
